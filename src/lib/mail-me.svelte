@@ -29,7 +29,9 @@
 </script>
 
 <a
-  href={count < 0 ? `${baseURL}/message/edit?to=${address}` : baseURL}
+  href={count < 0
+    ? `${baseURL}/message/edit${address ? `?to=${address}` : ""}`
+    : baseURL}
   target="_blank"
   class="container"
   class:solid={variant === "solid"}
