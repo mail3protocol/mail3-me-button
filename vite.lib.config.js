@@ -6,7 +6,7 @@ export default defineConfig({
   build:{
     lib:{
       entry: './src/lib/index.ts',
-      name: 'MyLibrary',
+      name: 'MailMe',
     }
   },
   plugins: [svelte({
