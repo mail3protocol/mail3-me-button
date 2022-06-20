@@ -10,7 +10,7 @@
   export let address: string;
   let count = -1;
   $: displayCount = count > 99 ? "99+" : count;
-  $: text = count < 0 ? "Mail me" : "Check Mail";
+  $: text = count <= 0 ? "Mail me" : "Check Mail";
 
   let src: string = `${baseURL}/api/logo`;
 
@@ -29,7 +29,7 @@
 </script>
 
 <a
-  href={count < 0
+  href={count <= 0
     ? `${baseURL}/message/edit${address ? `?to=${address}` : ""}`
     : baseURL}
   target="_blank"
@@ -43,7 +43,7 @@
   <div class="content">
     <div class="img">
       <img {src} alt={text} />
-      {#if count >= 0}
+      {#if count > 0}
         <span class="badge" class:big-count={displayCount !== count}
           >{displayCount}</span
         >
