@@ -7,12 +7,14 @@
     "https://mail3-app-git-feat-mail-me-button-mail3-postoffice.vercel.app";
   export let variant = "solid";
   export let lite = false;
-  export let address: string;
+  export let address: string = '';
+  export let icon: string = "solid";
   let count = -1;
   $: displayCount = count > 99 ? "99+" : count;
   $: text = count <= 0 ? "Mail me" : "Check Mail";
-
-  let src: string = `${baseURL}/api/logo`;
+  $: src = `${baseURL}/api/logo?style=${icon}`;
+  let hostname = location.hostname;
+  const buildUTMQuery = (ev: string) => `utm_source=${hostname}&utm_medium=${ev}`
 
   onMount(() => {
     const eventListener = (event: MessageEvent) => {
@@ -30,8 +32,10 @@
 
 <a
   href={count <= 0
-    ? `${baseURL}/message/edit${address ? `?to=${address}` : ""}`
-    : baseURL}
+    ? `${baseURL}/message/edit?${buildUTMQuery('click_mail_me_button')}${
+        address ? `&to=${address}` : ""
+      }`
+    : `${baseURL}/?${buildUTMQuery('click_check_mail_button')}`}
   target="_blank"
   class="container"
   class:solid={variant === "solid"}
@@ -42,7 +46,7 @@
 >
   <div class="content">
     <div class="img">
-      <img {src} alt={text} />
+      <img {src} class:circle={lite} alt={text} />
       {#if count > 0}
         <span class="badge" class:big-count={displayCount !== count}
           >{displayCount}</span
@@ -57,7 +61,9 @@
 {#if count === -1}
   <iframe
     title="Mail3"
-    src={`${baseURL}/unread${address ? `?from=${address}` : ""}`}
+    src={`${baseURL}/unread?${buildUTMQuery('visit_mail_me_check_mail_button')}${
+      address ? `&from=${address}` : ""
+    }`}
     style="display: none;"
   />
 {/if}
@@ -105,6 +111,9 @@
     width: 16px;
     height: 16px;
     margin-right: 4px;
+  }
+  .content .circle {
+    margin-right: 0;
   }
 
   .solid {
