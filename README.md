@@ -2,7 +2,7 @@
 
 `mail-me-button`  provides a simple way to interact with [Mail3 App](https://app.mail3.me).
 
-## Usege
+## Usage
 
 `mail-me-button` is a [Web Component](https://developer.mozilla.org/en-US/docs/Web/Web_Components), Just like a HTML element, `mail-me-button` has some built-in attributes:
 
