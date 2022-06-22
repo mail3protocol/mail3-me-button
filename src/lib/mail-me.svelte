@@ -13,6 +13,8 @@
   $: displayCount = count > 99 ? "99+" : count;
   $: text = count <= 0 ? "Mail me" : "Check Mail";
   $: src = `${baseURL}/api/logo?style=${icon}`;
+  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes
+  $: isLite = lite !== false
   let hostname = location.hostname;
   const buildUTMQuery = (ev: string) => `utm_source=${hostname}&utm_medium=${ev}`
 
@@ -41,19 +43,19 @@
   class:solid={variant === "solid"}
   class:outline={variant === "outline"}
   class:ghost={variant === "ghost"}
-  class:lite
+  class:lite={isLite}
   {...$$restProps}
 >
   <div class="content">
     <div class="img">
-      <img {src} class:circle={lite} alt={text} />
+      <img {src} class:circle={isLite} alt={text} />
       {#if count > 0}
         <span class="badge" class:big-count={displayCount !== count}
           >{displayCount}</span
         >
       {/if}
     </div>
-    {#if !lite}
+    {#if !isLite}
       <span>{text}</span>
     {/if}
   </div>
