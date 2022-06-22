@@ -17,7 +17,7 @@ In addition to the above built-in attributes, `mail-me-button` also supports pas
 
 [Live demo](https://stackblitz.com/edit/js-s517fy?file=index.html)
 
-After adding the `mail-me-button` script, you can use it like an HTMl element.
+After adding the `mail-me-button` script, you can use it like an HTML element.
 
 ```html
 <!DOCTYPE html>
@@ -55,7 +55,7 @@ Import the dependency in the entry file of your application:
 import '@mail3/mail-me'
 ```
 
-Use `mail-me-button` like a HTML Element:
+Use `mail-me-button` like an HTML Element:
 
 ```jsx
 <App>
