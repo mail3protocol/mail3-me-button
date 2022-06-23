@@ -1,4 +1,4 @@
-<svelte:options tag="mail-me" />
+<svelte:options tag="mail3-me" />
 
 <script lang="ts">
   import { onMount } from "svelte";
@@ -6,15 +6,16 @@
   let baseURL = "https://app.mail3.me";
   export let variant = "solid";
   export let lite = false;
-  export let address: string = "";
-  export let icon: string = "solid";
-  if (address && !emailReg.test(address)) {
-    console.error("Please pass a valid email address, current: " + address);
+  export let filter: string = "";
+  export let icon_type: string = "solid";
+  export let icon_style: string = "";
+  if (filter && !emailReg.test(filter)) {
+    console.error("Please pass a valid email address, current: " + filter);
   }
   let count = -1;
   $: displayCount = count > 99 ? "99+" : count;
   $: text = count <= 0 ? "Mail me" : "Check Mail";
-  $: src = `${baseURL}/api/logo?style=${icon}`;
+  $: src = `${baseURL}/api/logo?style=${icon_type}`;
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes
   $: isLite = lite !== false;
   let hostname = location.hostname;
@@ -38,7 +39,7 @@
 <a
   href={count <= 0
     ? `${baseURL}/message/edit?${buildUTMQuery("click_mail_me_button")}${
-        address ? `&to=${address}` : ""
+        filter ? `&to=${filter}` : ""
       }`
     : `${baseURL}/?${buildUTMQuery("click_check_mail_button")}`}
   target="_blank"
@@ -51,7 +52,7 @@
 >
   <div class="content">
     <div class="img">
-      <img {src} class:circle={isLite} alt={text} />
+      <img {src} style={icon_style} class:circle={isLite} alt={text} />
       {#if count > 0}
         <span class="badge" class:big-count={displayCount !== count}
           >{displayCount}</span
@@ -68,7 +69,7 @@
     title="Mail3"
     src={`${baseURL}/unread?${buildUTMQuery(
       "visit_mail_me_check_mail_button"
-    )}${address ? `&from=${address}` : ""}`}
+    )}${filter ? `&from=${filter}` : ""}`}
     style="display: none;"
   />
 {/if}
@@ -132,6 +133,7 @@
   .ghost {
     border: none;
     background: transparent;
+    padding: 0;
   }
   .lite {
     border-radius: 40px;

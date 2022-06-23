@@ -1,15 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mail Me Button</title>
-  </head>
-  <body>
-    <!-- <div id="app"></div> -->
-    <!-- <script type="module" src="/src/main.ts"></script> -->
-    <mail-me></mail-me>
-    <script type="module" src="/src/lib.ts"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mail Me Button</title>
+</head>
+
+<body>
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    .list> :not(style)~ :not(style) {
+      margin-top: 0px;
+      margin-inline: 24px 0px;
+      margin-bottom: 0px;
+    }
+  </style>
+  <!-- <div id="app"></div> -->
+  <!-- <script type="module" src="/src/main.ts"></script> -->
+  <div class="container">
+    <h3>Default</h3>
+    <mail3-me></mail3-me>
+    <h3>Attribute: lite</h3>
+    <div class="list">
+      <mail3-me lite></mail3-me>
+    </div>
+    <h3>Attribute: variant</h3>
+    <div class="list">
+      <mail3-me variant="solid"></mail3-me>
+      <mail3-me variant="outline"></mail3-me>
+      <mail3-me variant="ghost"></mail3-me>
+    </div>
+    <h3>Attribute: icon_type</h3>
+    <div class="list">
+      <mail3-me icon_type="solid"></mail3-me>
+      <mail3-me icon_type="white"></mail3-me>
+      <mail3-me icon_type="light"></mail3-me>
+      <mail3-me icon_type="black" variant="outline"></mail3-me>
+    </div>
+    <h3>Custom Style</h3>
+    <div class="list">
+      <mail3-me
+        icon_type="white"
+        icon_style="width: 24px; height: 24px; margin-right: 8px"
+        style="width: 250px; font-size: 16px; border-radius: 24px; background: #4E52F5;"
+      >
+      </mail3-me>
+    </div>
+  </div>
+  <script type="module" src="/src/lib.ts"></script>
+</body>
+
 </html>
