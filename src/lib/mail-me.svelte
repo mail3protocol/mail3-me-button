@@ -2,13 +2,16 @@
 
 <script lang="ts">
   import { onMount } from "svelte";
-
+  const emailReg = /^\S+@\S+\.\S+$/
   let baseURL =
     "https://mail3-app-git-feat-mail-me-button-mail3-postoffice.vercel.app";
   export let variant = "solid";
   export let lite = false;
   export let address: string = '';
   export let icon: string = "solid";
+  if (address && !emailReg.test(address)) {
+    console.error('Please pass a valid email address, current: ' + address);
+  }
   let count = -1;
   $: displayCount = count > 99 ? "99+" : count;
   $: text = count <= 0 ? "Mail me" : "Check Mail";
