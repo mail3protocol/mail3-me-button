@@ -6,7 +6,7 @@
 
 `mail-me-button` is a [Web Component](https://developer.mozilla.org/en-US/docs/Web/Web_Components), Just like an HTML element, `mail-me-button` has some built-in attributes:
 
-* `address(string)`: If this address is provided, `mail-me-button` displays the number of unread messages between this address and the currently logged in mailbox in Mail3 app, otherwise it displays the number of all unread messages.
+* `filter(string)`: `filter` can pass in an email address, If an address is provided, `mail-me-button` displays the number of unread messages between this address and the currently logged-in mailbox in Mail3 app, otherwise it displays the number of all unread messages.
 * `lite(boolean)`: in lite mode, `mail-me-button` will be displayed as a circular Icon without text.
 * `variant(string)`: Some default style set for `mail-me-button`, optionally one of `solid`, `outline`, `ghost`, default is `solid`
 * `icon_type(string)`: Icon type for Mail3 Icon, optionally one of `black`, `white`, `light`, `solid`, default is `solid`
