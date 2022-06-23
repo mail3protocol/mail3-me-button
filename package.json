@@ -1,6 +1,6 @@
 {
   "name": "@mail3/mail3-me",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
   "license": "MIT",
   "scripts": {
@@ -13,9 +13,9 @@
     "dist",
     "src"
   ],
-  "module": "dist/mail-me.es.js",
-  "main": "dist/mail-me.umd.js",
-  "unpkg": "dist/mail-me.umd.js",
+  "module": "dist/mail3-me.es.js",
+  "main": "dist/mail3-me.umd.js",
+  "unpkg": "dist/mail3-me.umd.js",
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
     "@tsconfig/svelte": "^2.0.1",
