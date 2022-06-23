@@ -10,7 +10,9 @@
   export let icon_type: string = "solid";
   export let icon_style: string = "";
   if (filter && !emailReg.test(filter)) {
-    console.error("Please pass a valid email address, current: " + filter);
+    console.error(
+      "Please pass a valid email address, current address: " + filter
+    );
   }
   let count = -1;
   $: displayCount = count > 99 ? "99+" : count;
