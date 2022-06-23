@@ -16,7 +16,7 @@
   }
   let count = -1;
   $: displayCount = count > 99 ? "99+" : count;
-  $: text = count <= 0 ? "Mail me" : "Check Mail";
+  $: text = count <= 0 ? "Mail3 me" : "Open inbox";
   $: src = `${baseURL}/api/logo?style=${icon_type}`;
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes
   $: isLite = lite !== false;

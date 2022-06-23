@@ -31,7 +31,7 @@ After adding the `mail-me-button` script, you can use it like an HTML element.
   <body>
     <!-- 3KiB gziped with public cdn, it is recommended that self-hosted this script -->
     <script src="https://unpkg.com/@mail3/mail3-me"></script>
-    <mail3-me address="your email address" />
+    <mail3-me filter="only mails from this address will show notification" />
   </body>
 </html>
 ```
@@ -61,6 +61,6 @@ Use `mail-me-button` like an HTML Element:
 ```jsx
 <App>
   <Navbar />
-  <mail3-me address="mail3.eth@mail3.me" />
+  <mail3-me filter="mail3.eth@mail3.me" />
 </App>
 ```
