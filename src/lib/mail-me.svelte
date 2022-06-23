@@ -2,24 +2,24 @@
 
 <script lang="ts">
   import { onMount } from "svelte";
-  const emailReg = /^\S+@\S+\.\S+$/
-  let baseURL =
-    "https://mail3-app-git-feat-mail-me-button-mail3-postoffice.vercel.app";
+  const emailReg = /^\S+@\S+\.\S+$/;
+  let baseURL = "https://app.mail3.me";
   export let variant = "solid";
   export let lite = false;
-  export let address: string = '';
+  export let address: string = "";
   export let icon: string = "solid";
   if (address && !emailReg.test(address)) {
-    console.error('Please pass a valid email address, current: ' + address);
+    console.error("Please pass a valid email address, current: " + address);
   }
   let count = -1;
   $: displayCount = count > 99 ? "99+" : count;
   $: text = count <= 0 ? "Mail me" : "Check Mail";
   $: src = `${baseURL}/api/logo?style=${icon}`;
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes
-  $: isLite = lite !== false
+  $: isLite = lite !== false;
   let hostname = location.hostname;
-  const buildUTMQuery = (ev: string) => `utm_source=${hostname}&utm_medium=${ev}`
+  const buildUTMQuery = (ev: string) =>
+    `utm_source=${hostname}&utm_medium=${ev}`;
 
   onMount(() => {
     const eventListener = (event: MessageEvent) => {
@@ -37,10 +37,10 @@
 
 <a
   href={count <= 0
-    ? `${baseURL}/message/edit?${buildUTMQuery('click_mail_me_button')}${
+    ? `${baseURL}/message/edit?${buildUTMQuery("click_mail_me_button")}${
         address ? `&to=${address}` : ""
       }`
-    : `${baseURL}/?${buildUTMQuery('click_check_mail_button')}`}
+    : `${baseURL}/?${buildUTMQuery("click_check_mail_button")}`}
   target="_blank"
   class="container"
   class:solid={variant === "solid"}
@@ -66,9 +66,9 @@
 {#if count === -1}
   <iframe
     title="Mail3"
-    src={`${baseURL}/unread?${buildUTMQuery('visit_mail_me_check_mail_button')}${
-      address ? `&from=${address}` : ""
-    }`}
+    src={`${baseURL}/unread?${buildUTMQuery(
+      "visit_mail_me_check_mail_button"
+    )}${address ? `&from=${address}` : ""}`}
     style="display: none;"
   />
 {/if}
