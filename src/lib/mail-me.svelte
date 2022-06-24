@@ -9,6 +9,7 @@
   export let filter: string = "";
   export let icon_type: string = "solid";
   export let icon_style: string = "";
+  export let css: string = '';
   if (filter && !emailReg.test(filter)) {
     console.error(
       "Please pass a valid email address, current address: " + filter
@@ -50,6 +51,7 @@
   class:outline={variant === "outline"}
   class:ghost={variant === "ghost"}
   class:lite={isLite}
+  style={css ? css : $$restProps.style}
   {...$$restProps}
 >
   <div class="content">
