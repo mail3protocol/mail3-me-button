@@ -16,7 +16,7 @@ In addition to the above built-in attributes, `mail3-me-button` also supports pa
 
 ### HTML
 
-[Live demo](https://stackblitz.com/edit/js-s517fy?file=index.html)
+[Live demo](https://stackblitz.com/edit/mail3-me?file=index.html)
 
 After adding the `mail3-me-button` script, you can use it like an HTML element.
 
