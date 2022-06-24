@@ -24,7 +24,7 @@ After adding the `mail3-me-button` script, you can use it like an HTML element.
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mail Me Button Demo</title>
+    <title>Mail3 Me Button Demo</title>
     <meta charset="UTF-8" />
   </head>
 
@@ -67,7 +67,7 @@ Use `mail3-me-button` like an HTML Element:
 
 #### Caveats
 
-The `style` attribute is replaced by the `css` attributes., and all custom style attribute should pass in a `string` type instead of `Object`.
+The `style` attribute is replaced by the `css` attribute, and all custom style attribute should pass in a `string` type instead of `Object`.
 
 ```jsx
 <App>
