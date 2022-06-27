@@ -6,13 +6,13 @@
   let baseURL = "https://app.mail3.me";
   export let variant = "solid";
   export let lite = false;
-  export let filter: string = "";
+  export let to: string = "";
   export let icon_type: string = "solid";
   export let icon_style: string = "";
   export let css: string = '';
-  if (filter && !emailReg.test(filter)) {
+  if (to && !emailReg.test(to)) {
     console.error(
-      "Please pass a valid email address, current address: " + filter
+      "Please pass a valid email address, current address: " + to
     );
   }
   let count = -1;
@@ -42,7 +42,7 @@
 <a
   href={count <= 0
     ? `${baseURL}/message/edit?${buildUTMQuery("click_mail_me_button")}${
-        filter ? `&to=${filter}` : ""
+        to ? `&to=${to}` : ""
       }`
     : `${baseURL}/?${buildUTMQuery("click_check_mail_button")}`}
   target="_blank"
@@ -73,7 +73,7 @@
     title="Mail3"
     src={`${baseURL}/unread?${buildUTMQuery(
       "visit_mail_me_check_mail_button"
-    )}${filter ? `&from=${filter}` : ""}`}
+    )}${to ? `&from=${to}` : ""}`}
     style="display: none;"
   />
 {/if}
