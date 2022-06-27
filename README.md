@@ -31,7 +31,7 @@ After adding the `mail3-me-button` script, you can use it like an HTML element.
   <body>
     <!-- 3KiB gziped with public cdn, it is recommended that self-hosted this script -->
     <script src="https://unpkg.com/@mail3/mail3-me"></script>
-    <mail3-me to="only mails from this address will show notification" />
+    <mail3-me to="oxyful.eth@mail3.me" />
   </body>
 </html>
 ```
