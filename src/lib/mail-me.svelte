@@ -58,13 +58,19 @@
     <div class="img">
       <img {src} style={icon_style} class:circle={isLite} alt={text} />
       {#if count > 0}
-        <span class="badge" class:big-count={displayCount !== count}
-          >{displayCount}</span
-        >
+        <span class="badge" class:big-count={displayCount !== count}>
+          {displayCount}
+        </span>
       {/if}
     </div>
     {#if !isLite}
-      <span>{text}</span>
+      <span>
+        {#if count <= 0}
+          Mail<sup>3</sup> Me
+        {:else}
+          Open inbox
+        {/if}
+      </span>
     {/if}
   </div>
 </a>
@@ -74,8 +80,7 @@
     src={`${baseURL}/unread?${buildUTMQuery(
       "visit_mail_me_check_mail_button"
     )}${to ? `&from=${to}` : ""}`}
-    style="display: none;"
-  />
+    style="display: none;"></iframe>
 {/if}
 
 <style>
