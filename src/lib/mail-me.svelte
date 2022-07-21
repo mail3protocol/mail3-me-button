@@ -17,8 +17,8 @@
   }
   let count = -1;
   $: displayCount = count > 99 ? "99+" : count;
-  $: text = count <= 0 ? "Mail3 me" : "Open inbox";
-  $: src = `${baseURL}/api/logo?style=${icon_type}`;
+  $: text = count <= 0 ? "Mail³ me" : "Open inbox";
+  $: src = `${baseURL}/icons/${icon_type}.png`;
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes
   $: isLite = lite !== false;
   let hostname = location.hostname;
@@ -58,19 +58,13 @@
     <div class="img">
       <img {src} style={icon_style} class:circle={isLite} alt={text} />
       {#if count > 0}
-        <span class="badge" class:big-count={displayCount !== count}>
-          {displayCount}
-        </span>
+        <span class="badge" class:big-count={displayCount !== count}
+          >{displayCount}</span
+        >
       {/if}
     </div>
     {#if !isLite}
-      <span>
-        {#if count <= 0}
-          Mail<sup>3</sup> Me
-        {:else}
-          Open inbox
-        {/if}
-      </span>
+      <span>{text}</span>
     {/if}
   </div>
 </a>
@@ -80,7 +74,8 @@
     src={`${baseURL}/unread?${buildUTMQuery(
       "visit_mail_me_check_mail_button"
     )}${to ? `&from=${to}` : ""}`}
-    style="display: none;"></iframe>
+    style="display: none;"
+  />
 {/if}
 
 <style>
@@ -103,13 +98,17 @@
   }
   .img {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .badge {
     position: absolute;
     top: -8px;
     right: -6px;
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    font-size: 12px;
+    height: 14px;
     background: #ff0c00;
     border-radius: 50%;
     display: flex;

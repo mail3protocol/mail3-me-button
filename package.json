@@ -1,6 +1,6 @@
 {
   "name": "@mail3/mail3-me",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "type": "module",
   "license": "MIT",
   "scripts": {
