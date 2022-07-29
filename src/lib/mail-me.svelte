@@ -73,7 +73,7 @@
     title="Mail3"
     src={`${baseURL}/unread?${buildUTMQuery(
       "visit_mail_me_check_mail_button"
-    )}${to ? `&from=${to}` : ""}`}
+    )}`}
     style="display: none;"
   />
 {/if}
